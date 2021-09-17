@@ -1,38 +1,26 @@
-{{>partials/header}}
+<!DOCTYPE html>
+<html lang="en">
 
-Opa {{name}} {{lastName}}, tudo bem?
-{{#showOld}}
-    Como vai a vida?
-{{/showOld}}
-{{^showOld}}
-    Beleza?
-{{/showOld}}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
 
-<hr/>
-<h2>Produtos</h2>
-<ul>
-    {{#products}}
-        {{>partials/productItem}}
-    {{/products}}
-</ul>
+<body>
+    {{>partials/header}}
 
-<hr/>
-<h2>Produtos a partir de R$ 12</h2>
-<ul>
-    {{#expensives}}
-        {{>partials/productItem}}
-    {{/expensives}}
-</ul>
+    <hr />
+    <h2>Usuarios do banco</h2>
+    <ul>
+        {{#users}}
+        <li>{{name}} - Idade: {{age}}</li>
+        {{/users}}
+    </ul>
+    <hr />
+    {{>partials/footer}}
 
-<hr/>
+</body>
 
-<ul>
-    {{#frasesDoDia}}
-        <li>{{.}}</li>
-    {{/frasesDoDia}}
-    {{^frasesDoDia}}
-        Não há frases motivacionais hoje.
-    {{/frasesDoDia}}
-</ul>
-
-{{>partials/footer}}
+</html>
