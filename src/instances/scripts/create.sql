@@ -1,41 +1,11 @@
-drop database if exists WalkCash;
-create database WalkCash;
-use WalkCash;
-
-drop table if exists ATLETA;
-CREATE TABLE ATLETA (
-    ID_ATLETA BigInt PRIMARY KEY,
-    PESO decimal(5,2),
-    ALTURA decimal(4,2),
-    NOME_ATLETA varchar(150),
-    CPF varchar(11),
-    SENHA varchar(15),
-    EMAIL varchar(100),
-    UNIQUE (SENHA, EMAIL)
+create database teste;
+use teste;
+create table users(
+	id int primary key auto_increment,
+	name varchar(100),
+    age int default 18
 );
 
-drop table if exists PERCURSO;
-CREATE TABLE PERCURSO (
-    DISTANCIA DECIMAL(6,3),
-    ID_PERCURSO BigInt PRIMARY KEY,
-    TEMPO TIME,
-    OBSERVACAO varchar(100),
-    FK_ATLETA_ID_ATLETA BigInt,
-    FK_ATIVIDADE_ID_ATIVIDADE BigInt
-);
+insert into users (name, age) values ('Gabriela', 20);
 
-drop table if exists ATIVIDADE;
-CREATE TABLE ATIVIDADE (
-    ID_ATIVIDADE BigInt PRIMARY KEY,
-    NOME_ATIVIDADE varchar(30) UNIQUE
-);
- 
-ALTER TABLE PERCURSO ADD CONSTRAINT FK_PERCURSO_2
-    FOREIGN KEY (FK_ATLETA_ID_ATLETA)
-    REFERENCES ATLETA (ID_ATLETA)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE PERCURSO ADD CONSTRAINT FK_PERCURSO_3
-    FOREIGN KEY (FK_ATIVIDADE_ID_ATIVIDADE)
-    REFERENCES ATIVIDADE (ID_ATIVIDADE)
-    ON DELETE RESTRICT;
+select * from users;
