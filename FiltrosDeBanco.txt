@@ -1,0 +1,9 @@
+Op
+    .gt -> Greather Than (Maior que)
+    .gte -> Greather Than Equal(Maior que e o proprio numero)
+    .lt -> Lower Than Equal(Menor que)
+    .lte -> Lower Than Equal(Menor que e o proprio numero)
+    .in -> mostra o que ta dentro de dois numero[x, y]
+    .notIn -> mostra o que não ta dentro de dois numero[x, y]
+    .like -> igual ao like para mexer com sql
+    
