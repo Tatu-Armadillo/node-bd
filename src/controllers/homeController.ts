@@ -1,9 +1,33 @@
 import { Request, Response } from 'express';
 import { Op } from 'sequelize';
 
-import { User } from '../models/User';
+import { User, UserInstance } from '../models/User';
 
 export const home = async (req: Request, res: Response) => {
+
+    let results = await User.findAll({
+        where: { id: 7 }
+    });
+    if (results.length > 0) {
+        let usuario: UserInstance = results[0];
+        usuario.age = 70;
+        await usuario.save();
+    }
+
+
+
+    await User.update(
+        {
+            // Dados a serem alterados
+            name: 'Barzotto'
+        },
+        {
+            // Condição para encontrar o(s) item(s)
+            where: {
+                id: 5
+            }
+        }
+    );
 
     let filtro: string = req.query.name as string;
     if (!filtro) {
